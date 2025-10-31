@@ -1,0 +1,47 @@
+### 1. CREATE New Todo (POST)
+# @name createTodo
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+    "title": "Finish Spring Boot project",
+    "description": "Complete the in-memory Todo API",
+    "completed": false
+}
+
+### 2. CREATE Another Todo (POST) - to ensure we have multiple items
+# @name createAnother
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+    "title": "Buy coffee filters",
+    "description": "Check supply before Friday",
+    "completed": false
+}
+
+### 3. READ ALL Todos (GET)
+# This should return an array containing items created in steps 1 and 2.
+GET http://localhost:8080/api/todos
+
+### 4. READ Todo by ID (GET)
+# Assuming the first item created has ID 1
+GET http://localhost:8080/api/todos/1
+
+### 5. UPDATE an Existing Todo (PUT)
+# We will mark the first item (ID 1) as completed
+PUT http://localhost:8080/api/todos/1
+Content-Type: application/json
+
+{
+    "title": "Finish Spring Boot project - COMPLETED",
+    "description": "Complete the in-memory Todo API",
+    "completed": true 
+}
+
+### 6. READ ALL to Verify Update (GET)
+GET http://localhost:8080/api/todos
+
+### 7. DELETE a Todo (DELETE)
+# Delete the second item (ID 2)
+DELETE http://localhost:8080/api/todos/2
